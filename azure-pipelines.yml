@@ -6,9 +6,13 @@
 trigger:
 - main
 
-steps:
-  
-- script: |
-    terraform init
-    terraform apply -auto-approve
-  displayName: 'Create resource Group'
+- task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
+  displayName: 'Install Terraform'
+  inputs:
+    terraformVersion: $(terraformVersion)
+
+- task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@0
+  displayName: 'Run terraform init'
+  inputs:
+    command: init
+    workingDirectory: $(terraformWorkingDirectory)
