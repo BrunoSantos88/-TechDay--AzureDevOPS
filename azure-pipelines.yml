@@ -10,10 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: Create Resource Grupo
-  displayName: 'Run a one-line script'
-
+  
 - script: |
     terraform init
     terraform apply -auto-approve
-  displayName: 'Run a multi-line script'
+  displayName: 'Create resource Group'
