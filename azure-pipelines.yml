@@ -12,20 +12,3 @@ steps:
   inputs:
   terraformVersion: latest 
   appendCommitMessageToRunName:
-
-
-- task: TerraformCLI
-  displayName: 'terraform init'
-  inputs:
-    command: init
-    environmentServiceName: 'My Azure Service Connection'
-    # indicate az login should be run as part of this command
-    runAzLogin: true
-
-- task: TerraformCLI
-  displayName: 'terraform apply'
-  inputs:
-    command: apply
-    environmentServiceName: 'My Azure Service Connection'
-    # indicate az login should be run as part of this command
-    runAzLogin: true
