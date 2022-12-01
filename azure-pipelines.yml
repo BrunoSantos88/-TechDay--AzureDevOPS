@@ -1,18 +1,17 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+trigger: none
 
-trigger:
-- main
+pool:
+ name: TestPool
+ demands:
+ - Agent.OS -equals Linux
 
-- task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
-  displayName: 'Install Terraform'
-  inputs:
-    terraformVersion: $(terraformVersion)
-
-- task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@0
-  displayName: 'Run terraform init'
-  inputs:
-    command: init
-    workingDirectory: $(terraformWorkingDirectory)
+steps:
+  - task: TerraformTaskV2@2
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+     
+  - task: TerraformTaskV2@2
+    inputs:
+      provider: 'azurerm'
+      command: 'apply'
