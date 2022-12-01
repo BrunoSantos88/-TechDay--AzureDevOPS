@@ -7,5 +7,10 @@ trigger:
 - main
 steps:
 
-- task: TerraformInstaller
-  displayName: install terraform
+- task: TerraformCLI
+  displayName: 'terraform apply'
+  inputs:
+    command: apply
+    environmentServiceName: 'My Azure Service Connection'
+    # indicate az login should be run as part of this command
+    runAzLogin: true
