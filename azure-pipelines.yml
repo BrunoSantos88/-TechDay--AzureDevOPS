@@ -11,4 +11,3 @@ steps:
   displayName: install terraform
   inputs:
   terraformVersion: latest 
-  appendCommitMessageToRunName:
