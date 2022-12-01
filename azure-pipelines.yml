@@ -6,12 +6,10 @@ pool:
  - Agent.OS -equals Linux
 
 steps:
-  - task: TerraformTaskV2@2
     inputs:
       provider: 'azurerm'
       command: 'init'
      
-  - task: TerraformTaskV2@2
     inputs:
       provider: 'azurerm'
       command: 'apply'
