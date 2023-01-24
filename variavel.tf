@@ -1,5 +1,5 @@
 variable "resource_group_name_group" {
-  default = "grupoderecursos"
+  default = "devops"
 }
 
 variable "resource_group_name_location" {
